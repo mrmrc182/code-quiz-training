@@ -1,1 +1,1 @@
-# code-quiz-trainingg
+# code-quiz-training
