@@ -8,8 +8,10 @@ var score = document.querySelector("score");
 var resetQuiz = document.getElementById("reset");
 
 
-startButton.addEventListener("click", clock);
-
+startButton.addEventListener("click", function(){
+    clock();
+    displayQuestion();
+  });
 
 function clock() {
     var timeLeft = 5;
@@ -30,36 +32,14 @@ function clock() {
     , 1000);
 }
 
-var questionContainer = document.querySelector("questionContainer");
-for (var i = 0; i < questionContainer.length; i++){
-    questionContainer.setAttribute("style", "display: none");
-}
-var questionContainer = document.querySelector("questionContainer");
-questionContainer.children[0].textContent = "Question 1";
-function displayQuestion(){
-    if (questionContainer.style.display === "none") {
-        questionContainer.style.display = "inline-block";
-    }else {
-        questionContainer.style.display = "none";
-    }
-}
-displayQuestion();
-
+// var questionContainer = document.querySelector("questionContainer");
 // for (var i = 0; i < questionContainer.length; i++){
 //     questionContainer.setAttribute("style", "display: none");
 // }
-
-// questionContainer.children[0].style.display = "none";
-// questionContainer.children[1].style.display = "none";
-// function displayQuestion(){
-//     if (questionContainer.children[0].style.display === "none" && questionContainer.children[1].style.display === "none") {
-//         questionContainer.children[0].style.display = "inline-block";
-//         questionContainer.children[1].style.display = "inline-block";
-//     }else {
-//         questionContainer.children[0].style.display = "none";
-//         questionContainer.children[1].style.display = "none";
-//     }
-// }
+var questionContainer = document.querySelector("#questionContainer");
+function displayQuestion(){
+    questionContainer.style.display="block";
+}
 
 // correctAnswer.addEventListener("click", function() {
 //     correctScore = correctTotal + 1;
