@@ -7,15 +7,11 @@ var incorrectAnswer = document.querySelector("incorrect");
 var score = document.querySelector("score");
 var resetQuiz = document.getElementById("reset");
 
-var questionContainer = document.querySelectorAll("questionContainer");
-
 
 startButton.addEventListener("click", clock);
-resetQuiz.addEventListener("click", clock);
 
 
 function clock() {
-    displayQuestion();
     var timeLeft = 5;
     var timeInterval = setInterval(function() {
         if (timeLeft > 1){
@@ -27,20 +23,44 @@ function clock() {
             timeLeft--;   
         }
         else {
-            answerTime.textContent = "Loser";
-            setInterval;
+            answerTime.textContent = "You lost";
+            return setInterval();
         }
     }
     , 1000);
 }
 
+var questionContainer = document.querySelector("questionContainer");
+for (var i = 0; i < questionContainer.length; i++){
+    questionContainer.setAttribute("style", "display: none");
+}
+var questionContainer = document.querySelector("questionContainer");
+questionContainer.children[0].textContent = "Question 1";
 function displayQuestion(){
     if (questionContainer.style.display === "none") {
-        questionContainer.style.display = "block";
+        questionContainer.style.display = "inline-block";
     }else {
         questionContainer.style.display = "none";
     }
 }
+displayQuestion();
+
+// for (var i = 0; i < questionContainer.length; i++){
+//     questionContainer.setAttribute("style", "display: none");
+// }
+
+// questionContainer.children[0].style.display = "none";
+// questionContainer.children[1].style.display = "none";
+// function displayQuestion(){
+//     if (questionContainer.children[0].style.display === "none" && questionContainer.children[1].style.display === "none") {
+//         questionContainer.children[0].style.display = "inline-block";
+//         questionContainer.children[1].style.display = "inline-block";
+//     }else {
+//         questionContainer.children[0].style.display = "none";
+//         questionContainer.children[1].style.display = "none";
+//     }
+// }
+
 // correctAnswer.addEventListener("click", function() {
 //     correctScore = correctTotal + 1;
 //     localStorage.setItem("correct", correctScore);

@@ -5,14 +5,22 @@
 header, main {
     background-color: black;
     color: white;
-    flex: flex;
+}
+header {
+    border: 5px solid red;
+}
+.center{
+    text-align: center;
+}
+.timeAndScore {
+    float: right;
 }
 div button{
     justify-content: center;
 }
 .questionContainer{
     text-align: center;
-    display: none;
+    border: 5px solid red;
 }
 
 .answers{
