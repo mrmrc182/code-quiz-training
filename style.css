@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+
+header, main {
+    background-color: black;
+    color: white;
+    flex: flex;
+}
+div button{
+    justify-content: center;
+}
+.questionContainer{
+    display: inline-block;
+    align-items: center;
+}
