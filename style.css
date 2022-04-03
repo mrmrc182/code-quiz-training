@@ -12,6 +12,7 @@ div button{
 }
 .questionContainer{
     text-align: center;
+    display: none;
 }
 
 .answers{

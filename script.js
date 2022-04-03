@@ -7,11 +7,15 @@ var incorrectAnswer = document.querySelector("incorrect");
 var score = document.querySelector("score");
 var resetQuiz = document.getElementById("reset");
 
+var questionContainer = document.querySelectorAll("questionContainer");
+
 
 startButton.addEventListener("click", clock);
 resetQuiz.addEventListener("click", clock);
 
+
 function clock() {
+    displayQuestion();
     var timeLeft = 5;
     var timeInterval = setInterval(function() {
         if (timeLeft > 1){
@@ -26,10 +30,19 @@ function clock() {
             answerTime.textContent = "Loser";
             setInterval;
         }
-    }, 1000);
+    }
+    , 1000);
 }
-correctAnswer.addEventListener("click", function() {
-    correctScore = correctTotal + 1;
-    localStorage.setItem("correct", correctScore);
-    console.log(correctScore);
-});
+
+function displayQuestion(){
+    if (questionContainer.style.display === "none") {
+        questionContainer.style.display = "block";
+    }else {
+        questionContainer.style.display = "none";
+    }
+}
+// correctAnswer.addEventListener("click", function() {
+//     correctScore = correctTotal + 1;
+//     localStorage.setItem("correct", correctScore);
+//     console.log(correctScore);
+// });
