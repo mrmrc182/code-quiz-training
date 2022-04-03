@@ -11,6 +11,13 @@ div button{
     justify-content: center;
 }
 .questionContainer{
+    text-align: center;
+}
+
+.answers{
+    list-style-type: none;
+}
+footer {
+    list-style-type: none;
     display: inline-block;
-    align-items: center;
 }
