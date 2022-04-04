@@ -1,6 +1,6 @@
 var answerTime = document.getElementById("time");
 var startButton = document.getElementById("startButton");
-var correctAnswer = document.querySelector("correct");
+var correctAnswer = document.getElementById("correct");
 var correctScore = document.querySelector("correctScore");
 var correctTotal = 0;
 var incorrectAnswer = document.querySelector("incorrect");
@@ -26,7 +26,6 @@ function clock() {
         }
         else {
             answerTime.textContent = "You lost";
-            return setInterval();
         }
     }
     , 1000);
@@ -36,13 +35,16 @@ function clock() {
 // for (var i = 0; i < questionContainer.length; i++){
 //     questionContainer.setAttribute("style", "display: none");
 // }
+// Manan from BCS helped with the following function below
 var questionContainer = document.querySelector("#questionContainer");
 function displayQuestion(){
     questionContainer.style.display="block";
 }
 
-// correctAnswer.addEventListener("click", function() {
-//     correctScore = correctTotal + 1;
-//     localStorage.setItem("correct", correctScore);
-//     console.log(correctScore);
-// });
+var questionContainer2 = document.getElementById("questionContainer2");
+
+correctAnswer.addEventListener("click", function(){
+    console.log(correctTotal + 1);
+    questionContainer.style.display="none";
+    questionContainer2.style.display="block";
+});

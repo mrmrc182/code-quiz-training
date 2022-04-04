@@ -23,6 +23,9 @@ div button{
     text-align: center;
     border: 5px solid red;
 }
+#questionContainer2{
+    display: none;
+}
 
 .answers{
     list-style-type: none;
