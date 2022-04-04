@@ -1,9 +1,7 @@
 var answerTime = document.getElementById("time");
 var startButton = document.getElementById("startButton");
-var correctAnswer = document.getElementById("correct");
-var correctScore = document.querySelector("correctScore");
-var correctTotal = 0;
-var incorrectAnswer = document.querySelector("incorrect");
+
+
 var score = document.querySelector("score");
 var resetQuiz = document.getElementById("reset");
 
@@ -43,8 +41,25 @@ function displayQuestion(){
 
 var questionContainer2 = document.getElementById("questionContainer2");
 
+var correctAnswer = document.getElementById("correct");
+var correctScore = document.querySelector("correctScore");
+var correctTotal = 0;
+
 correctAnswer.addEventListener("click", function(){
-    console.log(correctTotal + 1);
+    correctScore = correctTotal + 1;
     questionContainer.style.display="none";
     questionContainer2.style.display="block";
+    localStorage.setItem("Correct", JSON.stringify(correctScore));
 });
+
+var incorrectAnswer = document.querySelector("incorrect");
+var incorrectScore = document.querySelector("incorrectScore");
+var incorrectTotal = 0;
+
+incorrectAnswer.addEventListener("click", function(){
+    incorrectScore = incorrectTotal + 1;
+    questionContainer.style.display="none";
+    questionContainer2.style.display="block";
+    localStorage.setItem("Incorrect", JSON.stringify(incorrectScore));
+});
+

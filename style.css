@@ -15,9 +15,10 @@ header {
 .timeAndScore {
     float: right;
 }
-div button{
-    justify-content: center;
+button {
+    color: red;
 }
+
 #questionContainer{
     display: none;
     text-align: center;
@@ -25,6 +26,8 @@ div button{
 }
 #questionContainer2{
     display: none;
+    text-align: center;
+    border: 5px solid red;
 }
 
 .answers{
