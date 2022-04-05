@@ -8,7 +8,7 @@ var resetQuiz = document.getElementById("reset");
 
 startButton.addEventListener("click", function () {
     clock();
-    iterate(0);
+    displayQuestion();
 });
 
 function clock() {
@@ -31,19 +31,28 @@ function clock() {
 }
 
 
-var Questions= [{
-id: 0,
-question: "What is the first word we write when naming a variable?",
-answers: [{ text: "Var", isCorrect: true },
-            { text: "Obj", isCorrect: false },
-            { text: "Rel", isCorrect: false },
-        ],
-id: 1,
-question: "What is the term for a sequence of characters?",
-answers: [{ text: "Sequence", isCorrect: false },
-            { text: "String", isCorrect: true },
-            { text: "Cover", isCorrect: false },
-        ]
+var Questions = [{
+    id: 0,
+    question: "What is the first word we write when naming a variable?",
+    answers: 
+    [{ text: "Var", isCorrect: true },
+    { text: "Obj", isCorrect: false },
+    { text: "Rel", isCorrect: false },
+    ],
+    id: 1,
+    question: "What is the term for a sequence of characters?",
+    answers: 
+    [{ text: "Sequence", isCorrect: false },
+    { text: "String", isCorrect: true },
+    { text: "Cover", isCorrect: false },
+    ],
+    id: 2,
+    question: "What does the acronym DOM mean?",
+    answers: 
+    [{ text: "Darkness On Monday", isCorrect: false },
+    { text: "Document Object Model", isCorrect: true },
+    { text: "Dominance Of Me", isCorrect: false },
+    ]
 }]
 
 function iterate(id) {
@@ -58,6 +67,11 @@ function iterate(id) {
     ans1.value = Questions[id].answers[0].isCorrect;
     ans2.value = Questions[id].answers[1].isCorrect;
     ans3.value = Questions[id].answers[2].isCorrect;
+}
+var main = document.getElementById("#main");
+function displayQuestion(){
+    main.style.display = "block";
+    iterate();
 }
 
 // var questionContainer = document.querySelector("questionContainer");
