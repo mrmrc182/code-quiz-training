@@ -12,7 +12,7 @@ startButton.addEventListener("click", function(){
   });
 
 function clock() {
-    var timeLeft = 5;
+    var timeLeft = 20;
     var timeInterval = setInterval(function() {
         if (timeLeft > 1){
             answerTime.textContent = timeLeft + " seconds left.";
@@ -39,27 +39,32 @@ function displayQuestion(){
     questionContainer.style.display="block";
 }
 
-var questionContainer2 = document.getElementById("questionContainer2");
+var questionContainer2 = document.getElementById("#questionContainer2");
 
-var correctAnswer = document.getElementById("correct");
+var correctAnswer = document.querySelector("correct-btn");
 var correctScore = document.querySelector("correctScore");
 var correctTotal = 0;
-
-correctAnswer.addEventListener("click", function(){
-    correctScore = correctTotal + 1;
-    questionContainer.style.display="none";
-    questionContainer2.style.display="block";
-    localStorage.setItem("Correct", JSON.stringify(correctScore));
-});
-
-var incorrectAnswer = document.querySelector("incorrect");
+var incorrectAnswer = document.querySelector("incorrect-btn");
 var incorrectScore = document.querySelector("incorrectScore");
 var incorrectTotal = 0;
 
-incorrectAnswer.addEventListener("click", function(){
-    incorrectScore = incorrectTotal + 1;
-    questionContainer.style.display="none";
-    questionContainer2.style.display="block";
-    localStorage.setItem("Incorrect", JSON.stringify(incorrectScore));
+document.correctAnswer.addEventListener("click", function(){
+    nextQuestion();
+    // ifAnswerCorrect();
 });
 
+// document.incorrectAnswer.addEventListener("click", nextQuestion),
+
+function nextQuestion(){
+        questionContainer.style.display = "none";
+        questionContainer2.style.display = "block";
+    }
+
+// function ifAnswerCorrect(){
+//     timeLeft = timeLeft + 5;
+// }
+
+// function ifIncorrect(){
+//     //want it to take away time if i click the incorrect answer
+//     timeLeft = (timeLeft - 5);
+// }
