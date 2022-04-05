@@ -61,10 +61,10 @@ function nextQuestion(){
     }
 
 function ifAnswerCorrect(){
-     timeLeft = timeLeft + 5;
+     timeLeft = timeLeft += 5;
  }
 
  function ifIncorrect(){
      //want it to take away time if i click the incorrect answer
-     timeLeft = (timeLeft - 5);
+     timeLeft = (timeLeft -= 5);
 }
