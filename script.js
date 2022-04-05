@@ -50,21 +50,21 @@ var incorrectTotal = 0;
 
 document.correctAnswer.addEventListener("click", function(){
     nextQuestion();
-    // ifAnswerCorrect();
+    ifAnswerCorrect();
 });
 
-// document.incorrectAnswer.addEventListener("click", nextQuestion),
+document.incorrectAnswer.addEventListener("click", nextQuestion),
 
 function nextQuestion(){
         questionContainer.style.display = "none";
         questionContainer2.style.display = "block";
     }
 
-// function ifAnswerCorrect(){
-//     timeLeft = timeLeft + 5;
-// }
+function ifAnswerCorrect(){
+     timeLeft = timeLeft + 5;
+ }
 
-// function ifIncorrect(){
-//     //want it to take away time if i click the incorrect answer
-//     timeLeft = (timeLeft - 5);
-// }
+ function ifIncorrect(){
+     //want it to take away time if i click the incorrect answer
+     timeLeft = (timeLeft - 5);
+}
