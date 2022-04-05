@@ -1,33 +1,63 @@
 var answerTime = document.getElementById("time");
 var startButton = document.getElementById("startButton");
-
+var questionContainer = document.querySelector("question-container");
 
 var score = document.querySelector("score");
 var resetQuiz = document.getElementById("reset");
 
 
-startButton.addEventListener("click", function(){
+startButton.addEventListener("click", function () {
     clock();
-    displayQuestion();
-  });
+    iterate(0);
+});
 
 function clock() {
     var timeLeft = 20;
-    var timeInterval = setInterval(function() {
-        if (timeLeft > 1){
+    var timeInterval = setInterval(function () {
+        if (timeLeft > 1) {
             answerTime.textContent = timeLeft + " seconds left.";
             timeLeft--;
         }
-        else if(timeLeft === 1){
+        else if (timeLeft === 1) {
             answerTime.textContent = timeLeft + " second left."
-            timeLeft--;   
+            timeLeft--;
         }
         else {
             answerTime.textContent = "You lost";
         }
     }
-    , 1000);
-    
+        , 1000);
+
+}
+
+
+var Questions= [{
+id: 0,
+question: "What is the first word we write when naming a variable?",
+answers: [{ text: "Var", isCorrect: true },
+            { text: "Obj", isCorrect: false },
+            { text: "Rel", isCorrect: false },
+        ],
+id: 1,
+question: "What is the term for a sequence of characters?",
+answers: [{ text: "Sequence", isCorrect: false },
+            { text: "String", isCorrect: true },
+            { text: "Cover", isCorrect: false },
+        ]
+}]
+
+function iterate(id) {
+    var question = document.getElementById("question");
+    question.innerText = Questions[id].question;
+    var ans1 = document.getElementById("ans1");
+    var ans2 = document.getElementById("ans2");
+    var ans3 = document.getElementById("ans3");
+    ans1.innerText = Questions[id].answers[0].text;
+    ans2.innerText = Questions[id].answers[1].text;
+    ans3.innerText = Questions[id].answers[2].text;
+    ans1.value = Questions[id].answers[0].isCorrect;
+    ans2.value = Questions[id].answers[1].isCorrect;
+    ans3.value = Questions[id].answers[2].isCorrect;
 }
 
 // var questionContainer = document.querySelector("questionContainer");
@@ -35,37 +65,3 @@ function clock() {
 //     questionContainer.setAttribute("style", "display: none");
 // }
 // Manan from BCS helped with the following function below
-var questionContainer = document.querySelector("#questionContainer");
-function displayQuestion(){
-    questionContainer.style.display="block";
-}
-
-var questionContainer2 = document.getElementById("#questionContainer2");
-
-var correctAnswer = document.querySelector(".correct-btn");
-var correctScore = document.querySelector(".correctScore");
-var correctTotal = 0;
-var incorrectAnswer = document.querySelector(".incorrect-btn");
-var incorrectScore = document.querySelector(".incorrectScore");
-var incorrectTotal = 0;
-
-correctAnswer.addEventListener("click", function(){
-    nextQuestion();
-    ifAnswerCorrect();
-});
-
-incorrectAnswer.addEventListener("click", nextQuestion()),
-
-function nextQuestion(){
-        questionContainer.style.display = "none";
-        questionContainer2.style.display = "block";
-    }
-
-function ifAnswerCorrect(){
-     timeLeft = timeLeft += 5;
- }
-
- function ifIncorrect(){
-     //want it to take away time if i click the incorrect answer
-     timeLeft = (timeLeft -= 5);
-}

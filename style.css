@@ -19,20 +19,6 @@ button {
     color: red;
 }
 
-#questionContainer{
-    display: none;
-    text-align: center;
-    border: 5px solid red;
-}
-#questionContainer2{
-    display: none;
-    text-align: center;
-    border: 5px solid red;
-}
-
-.answers{
-    list-style-type: none;
-}
 footer {
     list-style-type: none;
     display: inline-block;
