@@ -27,6 +27,7 @@ function clock() {
         }
     }
     , 1000);
+    
 }
 
 // var questionContainer = document.querySelector("questionContainer");
@@ -41,19 +42,19 @@ function displayQuestion(){
 
 var questionContainer2 = document.getElementById("#questionContainer2");
 
-var correctAnswer = document.querySelector("correct-btn");
-var correctScore = document.querySelector("correctScore");
+var correctAnswer = document.querySelector(".correct-btn");
+var correctScore = document.querySelector(".correctScore");
 var correctTotal = 0;
-var incorrectAnswer = document.querySelector("incorrect-btn");
-var incorrectScore = document.querySelector("incorrectScore");
+var incorrectAnswer = document.querySelector(".incorrect-btn");
+var incorrectScore = document.querySelector(".incorrectScore");
 var incorrectTotal = 0;
 
-document.correctAnswer.addEventListener("click", function(){
+correctAnswer.addEventListener("click", function(){
     nextQuestion();
     ifAnswerCorrect();
 });
 
-document.incorrectAnswer.addEventListener("click", nextQuestion),
+incorrectAnswer.addEventListener("click", nextQuestion()),
 
 function nextQuestion(){
         questionContainer.style.display = "none";
