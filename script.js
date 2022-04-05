@@ -111,11 +111,11 @@ var answer = document.querySelectorAll(answer);
 var main = document.getElementById("main");
 if (main.target === answer){
     if(answer === isCorrect){
-        timeLeft + 5;
+        timeLeft + 5,
         Question(index[++]);
     }
     else(
-        timeLeft - 5;
+        timeLeft - 5,
         Question(index[++]);
 }
 else{
