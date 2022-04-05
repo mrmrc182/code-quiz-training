@@ -6,6 +6,9 @@ header, main {
     background-color: black;
     color: white;
 }
+main{
+    text-align: center;
+}
 header {
     border: 5px solid red;
 }
@@ -21,5 +24,9 @@ button {
 
 footer {
     list-style-type: none;
-    display: inline-block;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
 }
