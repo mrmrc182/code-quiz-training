@@ -29,31 +29,69 @@ function clock() {
         , 1000);
 
 }
+// BCSsuggested i store the ID as a global variable
+var id = 0;
 
-
-var Questions = [{
-    id: 0,
-    question: "What is the first word we write when naming a variable?",
-    answers: 
-    [{ text: "Var", isCorrect: true },
-    { text: "Obj", isCorrect: false },
-    { text: "Rel", isCorrect: false },
-    ],
-    id: 1,
-    question: "What is the term for a sequence of characters?",
-    answers: 
-    [{ text: "Sequence", isCorrect: false },
-    { text: "String", isCorrect: true },
-    { text: "Cover", isCorrect: false },
-    ],
-    id: 2,
-    question: "What does the acronym DOM mean?",
-    answers: 
-    [{ text: "Darkness On Monday", isCorrect: false },
-    { text: "Document Object Model", isCorrect: true },
-    { text: "Dominance Of Me", isCorrect: false },
-    ]
-}]
+//Tyler from BCS helped me with the formatting putting the questions into an array
+var Question = [
+    {
+     id: 0,
+     question: "What is the term used when declaring a variable?",
+     answers:
+     [
+         {
+             "text": "Obj",
+             "isCorrect": false
+         },
+         {
+             "text": "Var",
+             "isCorrect": true
+         },
+         {
+             "text": "Rel",
+             "isCorrect": false
+         }
+     ]
+  },
+    {
+     id: 1,
+     question: "What is the term used to describe a sequence of characters?",
+     answers:
+     [
+         {
+             "text": "Sequence",
+             "isCorrect": false
+         },
+         {
+             "text": "String",
+             "isCorrect": true
+         },
+         {
+             "text": "Characters",
+             "isCorrect": false
+         }
+     ]
+  },
+    {
+     id: 2,
+     question: "What does the acronym DOM mean?",
+     answers:
+     [
+         {
+             "text": "Darkness On Monday",
+             "isCorrect": false
+         },
+         {
+             "text": "Document Object Model",
+             "isCorrect": true
+         },
+         {
+             "text": "Dominance Of Me",
+             "isCorrect": false
+         }
+     ]
+  }
+  ]
 
 function iterate(id) {
     var question = document.getElementById("question");
@@ -68,14 +106,14 @@ function iterate(id) {
     ans2.value = Questions[id].answers[1].isCorrect;
     ans3.value = Questions[id].answers[2].isCorrect;
 }
-var main = document.getElementById("#main");
+var main = document.getElementById("main");
 function displayQuestion(){
-    main.style.display = "block";
-    iterate();
+    // I want to run the iterate function
+    iterate(0);
 }
 
-// var questionContainer = document.querySelector("questionContainer");
-// for (var i = 0; i < questionContainer.length; i++){
-//     questionContainer.setAttribute("style", "display: none");
-// }
+// answers.addEventListener("click", iterate(++));
+// // When the user clicks an answer, I want to either add/take off time if they got it correct or not
+// //Then it goes to the next question
+// })
 // Manan from BCS helped with the following function below
