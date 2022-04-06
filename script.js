@@ -2,7 +2,7 @@ var answerTime = document.getElementById("time");
 var startButton = document.getElementById("startButton");
 var questionContainer = document.querySelector("question-container");
 var mainEl = document.getElementById("main");
-var score = document.getElementById("score");
+
 var resetQuiz = document.getElementById("reset");
 var startMessage = document.getElementById("startMessage");
 resetQuiz.addEventListener("click", function () {
@@ -13,6 +13,8 @@ resetQuiz.addEventListener("click", function () {
 var timeLeft = 20;
 
 startButton.addEventListener("click", function () {
+    startButton.textContent = "";
+    startMessage.textContent = "";
     clock();
     question1();
     if (timeLeft > 0){
@@ -50,11 +52,15 @@ function endGame() {
     document.getElementById("initials").style.display= "block";
 }
 
+var score = document.getElementById("score");
 var submitButton = document.getElementById("submitButton");
+var initials = document.getElementById("scoreInitials");
 submitButton.addEventListener("click", function (event){
     event.preventDefault();
-    score.value;
-    initials.value;
+    var highScore = {
+        score: score.value,
+        initials: initials.value,
+    }
     localStorage.setItem("score", JSON.stringify(score));
     localStorage.setItem("initials", JSON.stringify(initials));
 })
