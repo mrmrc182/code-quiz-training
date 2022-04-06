@@ -105,25 +105,17 @@ function iterate(quizNumber) {
     ans2.value = Question[quizNumber].answers[1].isCorrect;
     ans3.value = Question[quizNumber].answers[2].isCorrect;
 }
-// add event listener to entire document
-// if class of event target.classlist = answer is answer, then check for ifCorrect/ifIncorrect
 
-var answer = document.querySelectorAll("answer");
+// function nextQuestion() {
+//     for (i = 0; i < Question.length; quizNumber++);
+// }
 var main = document.getElementById("main");
 
-answer.addEventListener("click", function () {
-    ifCorrect();
-    nextQuestion();
-});
-
-function nextQuestion() {
-    for (i = 0; i < Question.length; quizNumber++);
-}
-
-function ifCorrect() {
-    if (answer.isCorrect === true)
-        timeLeft + 5;
-    else {
-        timeLeft - 5;
+main.addEventListener("click", function(event) {
+    var element = event.target;
+    if (element.matches(".answer")){
+        for (i = 0; i < Question.length; quizNumber++);
     }
-}
+})
+// add event listener to entire document
+// if class of event target.classlist = answer is answer, then check for ifCorrect/ifIncorrect
