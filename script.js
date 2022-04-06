@@ -33,65 +33,66 @@ function clock() {
 //Tyler from BCS helped me with the formatting putting the questions into an array
 var Question = [
     {
-    //  id: 0,
-     question: "What is the term used when declaring a variable?",
-     answers:
-     [
-         {
-             "text": "Obj",
-             "isCorrect": false
-         },
-         {
-             "text": "Var",
-             "isCorrect": true
-         },
-         {
-             "text": "Rel",
-             "isCorrect": false
-         }
-     ]
-  },
+        //  id: 0,
+        question: "What is the term used when declaring a variable?",
+        answers:
+            [
+                {
+                    "text": "Obj",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Var",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Rel",
+                    "isCorrect": false
+                }
+            ]
+    },
     {
-    //  id: 1,
-     question: "What is the term used to describe a sequence of characters?",
-     answers:
-     [
-         {
-             "text": "Sequence",
-             "isCorrect": false
-         },
-         {
-             "text": "String",
-             "isCorrect": true
-         },
-         {
-             "text": "Characters",
-             "isCorrect": false
-         }
-     ]
-  },
+        //  id: 1,
+        question: "What is the term used to describe a sequence of characters?",
+        answers:
+            [
+                {
+                    "text": "Sequence",
+                    "isCorrect": false
+                },
+                {
+                    "text": "String",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Characters",
+                    "isCorrect": false
+                }
+            ]
+    },
     {
-    //  id: 2,
-     question: "What does the acronym DOM mean?",
-     answers:
-     [
-         {
-             "text": "Darkness On Monday",
-             "isCorrect": false
-         },
-         {
-             "text": "Document Object Model",
-             "isCorrect": true
-         },
-         {
-             "text": "Dominance Of Me",
-             "isCorrect": false
-         }
-     ]
-  }
-  ]
-var quizNumber = 0;
-function iterate() {
+        //  id: 2,
+        question: "What does the acronym DOM mean?",
+        answers:
+            [
+                {
+                    "text": "Darkness On Monday",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Document Object Model",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Dominance Of Me",
+                    "isCorrect": false
+                }
+            ]
+    }
+]
+
+function iterate(quizNumber) {
+    var quizNumber = 0;
     var question = document.getElementById("question");
     question.innerText = Question[0].question;
     var ans1 = document.getElementById("ans1");
@@ -107,43 +108,22 @@ function iterate() {
 // add event listener to entire document
 // if class of event target.classlist = answer is answer, then check for ifCorrect/ifIncorrect
 
-var answer = document.querySelectorAll(answer);
+var answer = document.querySelectorAll("answer");
 var main = document.getElementById("main");
-if (main.target === answer){
-    if(answer === isCorrect){
-        timeLeft + 5,
-        Question(index[++]);
+
+answer.addEventListener("click", function () {
+    ifCorrect();
+    nextQuestion();
+});
+
+function nextQuestion() {
+    for (i = 0; i < Question.length; quizNumber++);
+}
+
+function ifCorrect() {
+    if (answer.isCorrect === true)
+        timeLeft + 5;
+    else {
+        timeLeft - 5;
     }
-    else(
-        timeLeft - 5,
-        Question(index[++]);
 }
-else{
-    return;
-}
-//if .value=true, next question
-// functionality for ifCorrect and ifIncorrect 
-
-//questions at question number
-
-document.html.addEventListener("click")
-
-// function displayQuestion(){
-    // I want to run the iterate function starting at zero
-    // iterate();
-// }
-
-// var answer = document.querySelectorAll("answer");
-// document.answer.addEventListener("click", nextQuestion());
-
-// function nextQuestion(){
-// for (var id in Question) {
-//     id++; 
-//     }
-// }
-//whenever i click an answer button, i want the next question to be displayed 
-// when the button is clicked, check what ID it is.  
-//go up by one ID, or if its the final ID, run a game over screen.
-
-
-
