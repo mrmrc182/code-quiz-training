@@ -60,6 +60,9 @@ submitButton.addEventListener("click", function (event){
     localStorage.setItem("score", JSON.stringify(highScore.score));
     localStorage.setItem("initials", JSON.stringify(highScore.initials));
 })
+// Pseudo Code for how I would've displayed the localstorage items
+// Once the button was submitted, I would've parsed it from the storage
+// Then i would've created an appendage to the hiScores class on the scores page, and set in descending order
 
 //Tyler from BCS helped me with the formatting putting the questions into an array
 var Question = [
