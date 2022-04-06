@@ -1,18 +1,26 @@
 var answerTime = document.getElementById("time");
 var startButton = document.getElementById("startButton");
 var questionContainer = document.querySelector("question-container");
-
+var mainEl = document.getElementById("main");
 var score = document.querySelector("score");
 var resetQuiz = document.getElementById("reset");
+resetQuiz.addEventListener("click", function () {
+    clock();
+    question1();
+});
 
+var timeLeft = 20;
 
 startButton.addEventListener("click", function () {
     clock();
-    iterate();
+    question1();
+    if (timeLeft > 0){
+        return;
+    };
 });
 
+
 function clock() {
-    var timeLeft = 20;
     var timeInterval = setInterval(function () {
         if (timeLeft > 1) {
             answerTime.textContent = timeLeft + " seconds left.";
@@ -23,7 +31,9 @@ function clock() {
             timeLeft--;
         }
         else {
+            clearInterval(timeInterval);
             answerTime.textContent = "You lost";
+            endGame();
         }
     }
         , 1000);
@@ -91,31 +101,95 @@ var Question = [
     }
 ]
 
-function iterate(quizNumber) {
-    var quizNumber = 0;
-    var question = document.getElementById("question");
+var quizNumber = "";
+var question = document.getElementById("question");
+var ans1 = document.getElementById("ans1");
+var ans2 = document.getElementById("ans2");
+var ans3 = document.getElementById("ans3");
+
+function question1() {
     question.innerText = Question[0].question;
-    var ans1 = document.getElementById("ans1");
-    var ans2 = document.getElementById("ans2");
-    var ans3 = document.getElementById("ans3");
-    ans1.innerText = Question[quizNumber].answers[0].text;
-    ans2.innerText = Question[quizNumber].answers[1].text;
-    ans3.innerText = Question[quizNumber].answers[2].text;
-    ans1.value = Question[quizNumber].answers[0].isCorrect;
-    ans2.value = Question[quizNumber].answers[1].isCorrect;
-    ans3.value = Question[quizNumber].answers[2].isCorrect;
+    ans1.innerText = Question[0].answers[0].text;
+    ans2.innerText = Question[0].answers[1].text;
+    ans3.innerText = Question[0].answers[2].text;
+    ans1.addEventListener("click", function (){
+        this.innerHTML="";
+        question2();
+        loseTime();
+    })
+    ans2.addEventListener("click", function (){
+        this.innerHTML="";
+        question2();
+        gainTime();
+    })
+    ans3.addEventListener("click", function (){
+        this.innerHTML="";
+        question2();
+        loseTime();
+    })
 }
+
+function question2 (){
+    question.innerText = Question[1].question;
+    ans1.innerText = Question[1].answers[0].text;
+    ans2.innerText = Question[1].answers[1].text;
+    ans3.innerText = Question[1].answers[2].text;
+    ans1.addEventListener("click", function (){
+        this.innerHTML="";
+        question3();
+    })
+    ans2.addEventListener("click", function (){
+        this.innerHTML="";
+        question3();
+    })
+    ans3.addEventListener("click", function (){
+        this.innerHTML="";
+        question3();
+    })
+}
+
+function question3 (){
+    question.innerText = Question[2].question;
+    ans1.innerText = Question[2].answers[0].text;
+    ans2.innerText = Question[2].answers[1].text;
+    ans3.innerText = Question[2].answers[2].text;
+    ans1.addEventListener("click", function (){
+        this.innerHTML="";
+        endGame();
+    })
+    ans2.addEventListener("click", function (){
+        this.innerHTML="";
+        endGame();
+    })
+    ans3.addEventListener("click", function (){
+        this.innerHTML="";
+        endGame();
+    })
+}
+function loseTime (){
+    timeLeft = timeLeft - 5;
+}
+
+function gainTime(){
+    timeLeft = timeLeft + 5;
+}
+
+function endGame() {
+    mainEl.style.display= "none";
+}
+
 
 // function nextQuestion() {
 //     for (i = 0; i < Question.length; quizNumber++);
 // }
-var main = document.getElementById("main");
 
-main.addEventListener("click", function(event) {
-    var element = event.target;
-    if (element.matches(".answer")){
-        for (i = 0; i < Question.length; quizNumber++);
-    }
-})
+
+// main.addEventListener("click", function(event) {
+//     var element = event.target;
+//     if (element.matches("button")){
+//         for (i = 0; i < Question.length; quizNumber = i++);
+//     }
+// })
+// console.log(Question.length);
 // add event listener to entire document
 // if class of event target.classlist = answer is answer, then check for ifCorrect/ifIncorrect

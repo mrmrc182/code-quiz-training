@@ -1,16 +1,17 @@
 *{
     box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-header, main {
+header, main, footer {
     background-color: black;
     color: white;
 }
+html {
+    background-color: black;
+}
 main{
     text-align: center;
-}
-header {
-    border: 5px solid red;
 }
 .center{
     text-align: center;
@@ -24,9 +25,12 @@ button {
 
 footer {
     list-style-type: none;
+    text-align: center;
 }
 
-footer {
-    margin-top: 50px;
-    text-align: center;
+.question-container{
+    padding: 20px;
+}
+.answerOptions{
+    padding: 20px;
 }
