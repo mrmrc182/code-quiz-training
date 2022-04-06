@@ -40,6 +40,12 @@ function clock() {
 
 }
 
+function endGame() {
+    mainEl.style.display= "none";
+    score.textContent= "Your score is " + (timeLeft);
+    clearInterval(timeInterval);
+}
+
 //Tyler from BCS helped me with the formatting putting the questions into an array
 var Question = [
     {
@@ -174,9 +180,7 @@ function gainTime(){
     timeLeft = timeLeft + 5;
 }
 
-function endGame() {
-    mainEl.style.display= "none";
-}
+
 
 
 // function nextQuestion() {
