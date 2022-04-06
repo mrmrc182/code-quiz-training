@@ -12,9 +12,15 @@
         <h1 class="center">Code Quiz!</h1>
         <div class="center">
             <h3 id="time"></h3>
-            <h3 class="score"></h3>
-            <h3>Click Start to Begin!</h3>
+            <h3 id="score"></h3>
+            <h3 id="startMessage">Click Start to Begin!</h3>
             <button id="startButton"><h3>Start</h3></button>
+        </div>
+        <div id="initials" class="center">
+            <form class="initials">
+                <label for="initials">Put your initials here! </label><input type="text">
+                <button id="submitButton">"Submit"</button>
+            </form>
         </div>
     </header>
     <main id="main">
@@ -25,6 +31,7 @@
                 <button class="correctAnswer" id="ans2"></button>
                 <button class="wrongAnswer" id="ans3"></button>
             </div>
+        </div>
     </main>
     <footer>
         <button id="reset">Reset Quiz</button>

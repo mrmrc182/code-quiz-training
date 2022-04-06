@@ -2,8 +2,9 @@ var answerTime = document.getElementById("time");
 var startButton = document.getElementById("startButton");
 var questionContainer = document.querySelector("question-container");
 var mainEl = document.getElementById("main");
-var score = document.querySelector("score");
+var score = document.getElementById("score");
 var resetQuiz = document.getElementById("reset");
+var startMessage = document.getElementById("startMessage");
 resetQuiz.addEventListener("click", function () {
     clock();
     question1();
@@ -19,9 +20,9 @@ startButton.addEventListener("click", function () {
     };
 });
 
-
+var timeInterval;
 function clock() {
-    var timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
         if (timeLeft > 1) {
             answerTime.textContent = timeLeft + " seconds left.";
             timeLeft--;
@@ -39,12 +40,28 @@ function clock() {
         , 1000);
 
 }
-
 function endGame() {
     mainEl.style.display= "none";
-    score.textContent= "Your score is " + (timeLeft);
+    score.textContent= "Your score is " + timeLeft;
     clearInterval(timeInterval);
+    startButton.textContent = "";
+    answerTime.textContent= "";
+    startMessage.textContent= "";
+    document.getElementById("initials").style.display= "block";
 }
+
+var submitButton = document.getElementById("submitButton");
+submitButton.addEventListener("click", function (event){
+    event.preventDefault();
+    score.value;
+    initials.value;
+    localStorage.setItem("score", JSON.stringify(score));
+    localStorage.setItem("initials", JSON.stringify(initials));
+})
+
+//user presses submit button
+//score is submitted to local storage
+//initials submitted to local storage
 
 //Tyler from BCS helped me with the formatting putting the questions into an array
 var Question = [
