@@ -21,6 +21,7 @@ main{
 }
 button {
     color: red;
+    border-radius: 5px;
 }
 
 footer {

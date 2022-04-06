@@ -5,10 +5,6 @@ var mainEl = document.getElementById("main");
 
 var resetQuiz = document.getElementById("reset");
 var startMessage = document.getElementById("startMessage");
-resetQuiz.addEventListener("click", function () {
-    clock();
-    question1();
-});
 
 var timeLeft = 20;
 
@@ -61,18 +57,13 @@ submitButton.addEventListener("click", function (event){
         score: score.value,
         initials: initials.value,
     }
-    localStorage.setItem("score", JSON.stringify(score));
-    localStorage.setItem("initials", JSON.stringify(initials));
+    localStorage.setItem("score", JSON.stringify(highScore.score));
+    localStorage.setItem("initials", JSON.stringify(highScore.initials));
 })
-
-//user presses submit button
-//score is submitted to local storage
-//initials submitted to local storage
 
 //Tyler from BCS helped me with the formatting putting the questions into an array
 var Question = [
     {
-        //  id: 0,
         question: "What is the term used when declaring a variable?",
         answers:
             [
@@ -91,7 +82,6 @@ var Question = [
             ]
     },
     {
-        //  id: 1,
         question: "What is the term used to describe a sequence of characters?",
         answers:
             [
@@ -110,7 +100,6 @@ var Question = [
             ]
     },
     {
-        //  id: 2,
         question: "What does the acronym DOM mean?",
         answers:
             [
@@ -127,7 +116,43 @@ var Question = [
                     "isCorrect": false
                 }
             ]
-    }
+    },
+    {
+        question: "What is the term used to grab an ID in your HTML?",
+        answers:
+            [
+                {
+                    "text": ".innerText",
+                    "isCorrect": false
+                },
+                {
+                    "text": "this.ID",
+                    "isCorrect": false
+                },
+                {
+                    "text": "getElementByID",
+                    "isCorrect": true
+                }
+            ]
+    },
+    {
+        question: "What is the first word you write when referencing an element or class in the HTML?",
+        answers:
+            [
+                {
+                    "text": "document",
+                    "isCorrect": true
+                },
+                {
+                    "text": "query",
+                    "isCorrect": false
+                },
+                {
+                    "text": "element",
+                    "isCorrect": false
+                }
+            ]
+    },
 ]
 
 var quizNumber = "";
@@ -166,14 +191,17 @@ function question2 (){
     ans1.addEventListener("click", function (){
         this.innerHTML="";
         question3();
+        loseTime();
     })
     ans2.addEventListener("click", function (){
         this.innerHTML="";
         question3();
+        gainTime();
     })
     ans3.addEventListener("click", function (){
         this.innerHTML="";
         question3();
+        loseTime();
     })
 }
 
@@ -184,15 +212,61 @@ function question3 (){
     ans3.innerText = Question[2].answers[2].text;
     ans1.addEventListener("click", function (){
         this.innerHTML="";
+        question4();
+        loseTime();
+    })
+    ans2.addEventListener("click", function (){
+        this.innerHTML="";
+        question4();
+        gainTime();
+    })
+    ans3.addEventListener("click", function (){
+        this.innerHTML="";
+        question4();
+        loseTime();
+    })
+}
+
+function question4 (){
+    question.innerText = Question[3].question;
+    ans1.innerText = Question[3].answers[0].text;
+    ans2.innerText = Question[3].answers[1].text;
+    ans3.innerText = Question[3].answers[2].text;
+    ans1.addEventListener("click", function (){
+        this.innerHTML="";
+        question5();
+        loseTime();
+    })
+    ans2.addEventListener("click", function (){
+        this.innerHTML="";
+        question5();
+        loseTime();
+    })
+    ans3.addEventListener("click", function (){
+        this.innerHTML="";
+        question5();
+        gainTime();
+    })
+}
+function question5 (){
+    question.innerText = Question[4].question;
+    ans1.innerText = Question[4].answers[0].text;
+    ans2.innerText = Question[4].answers[1].text;
+    ans3.innerText = Question[4].answers[2].text;
+    ans1.addEventListener("click", function (){
+        this.innerHTML="";
         endGame();
+        gainTime();
     })
     ans2.addEventListener("click", function (){
         this.innerHTML="";
         endGame();
+        loseTime();
     })
     ans3.addEventListener("click", function (){
         this.innerHTML="";
         endGame();
+        loseTime();
     })
 }
 function loseTime (){
@@ -203,20 +277,3 @@ function gainTime(){
     timeLeft = timeLeft + 5;
 }
 
-
-
-
-// function nextQuestion() {
-//     for (i = 0; i < Question.length; quizNumber++);
-// }
-
-
-// main.addEventListener("click", function(event) {
-//     var element = event.target;
-//     if (element.matches("button")){
-//         for (i = 0; i < Question.length; quizNumber = i++);
-//     }
-// })
-// console.log(Question.length);
-// add event listener to entire document
-// if class of event target.classlist = answer is answer, then check for ifCorrect/ifIncorrect
